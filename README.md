@@ -241,3 +241,26 @@ Full模式与Lite模式
 @Conditional
 
 条件装配：满足Conditional指定的条件，则进行组件注入
+
+## 配置绑定 
+
+如何使用Java读取到properties文件中的内容，并且把它封装到JavaBean中，以供随时使用；
+
+```java
+public class getProperties {
+     public static void main(String[] args) throws FileNotFoundException, IOException {
+         Properties pps = new Properties();
+         pps.load(new FileInputStream("a.properties"));
+         Enumeration enum1 = pps.propertyNames();//得到配置文件的名字
+         while(enum1.hasMoreElements()) {
+             String strKey = (String) enum1.nextElement();
+             String strValue = pps.getProperty(strKey);
+             System.out.println(strKey + "=" + strValue);
+             //封装到JavaBean。
+         }
+     }
+ }
+```
+
+@ConfigurationProperties
+
