@@ -18,7 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 //@SpringBootConfiguration
 //@EnableAutoConfiguration
-//@ComponentScan("com.gavin.boot")
+//@ComponentScan("com.gavin.boot") // 扩大包扫描
 public class MainApplication {
     public static void main(String[] args) {
         // 返回IOC容器

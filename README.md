@@ -232,7 +232,9 @@ SpringBoot所有的自动配置功能都在 spring-boot-autoconfigure 包里面
 
 @Configuration
 
-@bean
-
 Full模式与Lite模式
+
+@Bean、@Component、@Controller、@Service、@Repository
+
+@ComponentScan、@Import
 
