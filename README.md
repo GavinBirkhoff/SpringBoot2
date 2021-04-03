@@ -1,12 +1,13 @@
-# SpringBoot2
-SpringBoot2 学习 探究
+# SpringBoot2核心技术
 
-## 环境要求
+## SpringBoot2入门
+
+**环境要求**
 
 - Java8及以上
 - Maven 3.3及以上：https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-system-requirements
 
-## maven设置
+**maven设置**
 
 ```xml
 <mirrors>
@@ -34,7 +35,7 @@ SpringBoot2 学习 探究
   </profiles>
 ```
 
-## 引入依赖
+**引入依赖**
 
 ```xml
 <parent>
@@ -53,3 +54,65 @@ SpringBoot2 学习 探究
     </dependencies>
 ```
 
+**创建主程序**
+
+```java
+/**
+ * 主程序类
+ * @SpringBootApplication：这是一个SpringBoot应用
+ */
+@SpringBootApplication
+public class MainApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MainApplication.class,args);
+    }
+}
+```
+
+**添加controller**
+
+```
+@RestController
+public class HelloController {
+
+
+    @RequestMapping("/hello")
+    public String handle01(){
+        return "Hello, Spring Boot 2!";
+    }
+
+
+}
+```
+
+**测试**
+
+直接运行main方法
+
+**简化配置**
+
+application.properties
+
+```
+server.port=8888
+```
+
+**简化部署**
+
+```
+ <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+```
+
+把项目打成jar包，直接在目标服务器执行即可。
+
+注意点：
+
+如果是win取消掉cmd的快速编辑模式
