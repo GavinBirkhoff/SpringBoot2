@@ -55,9 +55,13 @@ public class MainApplication {
         for (String name : beanNames){
             System.out.println("name = " + name);
         }
-
         DBHelper bean1 = run.getBean(DBHelper.class);
         System.out.println(bean1);
+
+        boolean person = run.containsBean("person");
+        boolean animal = run.containsBean("animal");
+        System.out.println("person = " + person);
+        System.out.println("animal = " + animal);
 
     }
 }
