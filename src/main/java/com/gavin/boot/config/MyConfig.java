@@ -1,10 +1,12 @@
 package com.gavin.boot.config;
 
 import ch.qos.logback.core.db.DBHelper;
+import com.gavin.boot.bean.Car;
 import com.gavin.boot.bean.Pet;
 import com.gavin.boot.bean.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -28,6 +30,9 @@ import org.springframework.context.annotation.ImportResource;
 //@ConditionalOnBean(name = "tom")
 @ConditionalOnMissingBean(name = "tom")
 @ImportResource("classpath:beans.xml")
+@EnableConfigurationProperties(Car.class)
+//1、开启Car配置绑定功能
+//2、把这个Car这个组件自动注册到容器中
 public class MyConfig {
 
     /**

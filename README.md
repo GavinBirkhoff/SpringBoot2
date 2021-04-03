@@ -264,3 +264,4 @@ public class getProperties {
 
 @ConfigurationProperties
 
+@Component + @ConfigurationProperties
