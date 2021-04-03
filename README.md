@@ -238,3 +238,6 @@ Full模式与Lite模式
 
 @ComponentScan、@Import
 
+@Conditional
+
+条件装配：满足Conditional指定的条件，则进行组件注入

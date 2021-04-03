@@ -3,6 +3,8 @@ package com.gavin.boot.config;
 import ch.qos.logback.core.db.DBHelper;
 import com.gavin.boot.bean.Pet;
 import com.gavin.boot.bean.User;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -20,6 +22,8 @@ import org.springframework.context.annotation.Import;
  */
 @Import({User.class, DBHelper.class})
 @Configuration(proxyBeanMethods = true) //告诉SpringBoot这是一个配置类 == 配置文件
+//@ConditionalOnBean(name = "tom")
+@ConditionalOnMissingBean(name = "tom")
 public class MyConfig {
 
     /**
