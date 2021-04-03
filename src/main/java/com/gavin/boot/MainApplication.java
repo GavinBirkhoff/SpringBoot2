@@ -1,5 +1,6 @@
 package com.gavin.boot;
 
+import ch.qos.logback.core.db.DBHelper;
 import com.gavin.boot.bean.Pet;
 import com.gavin.boot.bean.User;
 import com.gavin.boot.config.MyConfig;
@@ -48,6 +49,15 @@ public class MainApplication {
         User user01 = run.getBean("user01", User.class);
         Pet tom = run.getBean("tom", Pet.class);
         System.out.println("My pet " + (user01.getPet()==tom));
+
+        // 获取组件
+        String[] beanNames = run.getBeanNamesForType(User.class);
+        for (String name : beanNames){
+            System.out.println("name = " + name);
+        }
+
+        DBHelper bean1 = run.getBean(DBHelper.class);
+        System.out.println(bean1);
 
     }
 }
