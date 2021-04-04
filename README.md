@@ -320,3 +320,48 @@ https://www.webjars.org/
 ```
 
 访问地址：[http://localhost:8080/webjars/**jquery/3.5.1/jquery.js**](http://localhost:8080/webjars/jquery/3.5.1/jquery.js)  后面地址要按照依赖里面的包路径
+
+### 请求映射
+
+### rest使用与原理
+
+- @xxxMapping；
+- Rest风格支持（*使用**HTTP**请求方式动词来表示对资源的操作*）
+
+- - *以前：**/getUser*  *获取用户*   */deleteUser* *删除用户*   */editUser*  *修改用户*    */saveUser* *保存用户*
+  - *现在： /user*   *GET-**获取用户*   *DELETE-**删除用户*   *PUT-**修改用户*    *POST-**保存用户*
+  - 核心Filter；HiddenHttpMethodFilter
+
+- - - 用法： 表单method=post，隐藏域 _method=put
+    - SpringBoot中手动开启
+
+- - 扩展：如何把_method 这个名字换成我们自己喜欢的。
+
+Rest原理（表单提交要使用REST的时候）
+
+- 表单提交会带上**_method=PUT**
+- **请求过来被**HiddenHttpMethodFilter拦截
+
+- - 请求是否正常，并且是POST
+
+- - - 获取到**_method**的值。
+    - 兼容以下请求；**PUT**.**DELETE**.**PATCH**
+    - **原生request（post），包装模式requesWrapper重写了getMethod方法，返回的是传入的值。**
+    - **过滤器链放行的时候用wrapper。以后的方法调用getMethod是调用requesWrapper的。
+
+**Rest使用客户端工具，**
+
+- 如PostMan直接发送Put、delete等方式请求，无需Filter。
+
+```
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true   #开启页面表单的Rest功能
+```
+
+```
+WebMvcAutoConfiguration 追源码的类
+```
+

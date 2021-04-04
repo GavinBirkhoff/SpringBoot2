@@ -45,6 +45,9 @@ person:
 #      time-to-live: 11000
 spring:
   mvc:
-    static-path-pattern: /res/**
+    hiddenmethod:
+      filter:
+        enabled: true #开启页面表单的Rest功能
+  #    static-path-pattern: /res/**
   resources:
     static-locations: [classpath:/gavin/]
