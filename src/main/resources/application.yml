@@ -43,3 +43,8 @@ person:
 #    type: redis
 #    redis:
 #      time-to-live: 11000
+spring:
+  mvc:
+    static-path-pattern: /res/**
+  resources:
+    static-locations: [classpath:/gavin/]

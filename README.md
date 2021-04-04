@@ -268,3 +268,55 @@ public class getProperties {
 
 @EnableConfigurationProperties + @ConfigurationProperties
 
+## WEB开发
+
+### 静态资源访问
+
+静态资源目录
+
+只要静态资源放在类路径下： called `/static` (or `/public` or `/resources` or `/META-INF/resources`
+
+访问 ： 当前项目根路径/ + 静态资源名 
+
+原理： 静态映射/**。
+
+请求进来，先去找Controller看能不能处理。不能处理的所有请求又都交给静态资源处理器。静态资源也找不到则响应404页面
+
+改变默认的静态资源路径
+
+```
+spring:
+  mvc:
+    static-path-pattern: /res/**
+
+  resources:
+    static-locations: [classpath:/gavin/]
+```
+
+静态资源访问前缀
+
+默认无前缀
+
+```
+spring:
+  mvc:
+    static-path-pattern: /res/**
+```
+
+当前项目 + static-path-pattern + 静态资源名 = 静态资源文件夹下找
+
+webjar
+
+自动映射 /[webjars](http://localhost:8080/webjars/jquery/3.5.1/jquery.js)/**
+
+https://www.webjars.org/
+
+```
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+```
+
+访问地址：[http://localhost:8080/webjars/**jquery/3.5.1/jquery.js**](http://localhost:8080/webjars/jquery/3.5.1/jquery.js)  后面地址要按照依赖里面的包路径
