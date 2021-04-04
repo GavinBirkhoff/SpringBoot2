@@ -2,6 +2,7 @@ package com.gavin.boot.controller;
 
 //import org.springframework.stereotype.Controller;
 import com.gavin.boot.bean.Car;
+import com.gavin.boot.bean.Person;
 import com.oracle.tools.packager.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class HelloController {
 
     @Autowired
     Car car;
+    @Autowired
+    Person person;
 
     @RequestMapping("/car")
     public Car car(){
@@ -33,5 +36,10 @@ public class HelloController {
         System.out.println("sout 请求进来了");
         log.info("请求进来了");
         return "Hello, Spring Boot 2!";
+    }
+
+    @RequestMapping("/person")
+    public Person person(){
+        return person;
     }
 }

@@ -11,4 +11,5 @@ import lombok.ToString;
 @Data // 生成get set 方法
 public class Pet {
     private String name;
+    private Integer weight;
 }

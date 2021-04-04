@@ -1,0 +1,44 @@
+person:
+  #  单引号会将 \n作为字符串输出   双引号会将\n 作为换行输出
+  #  双引号不会转义，单引号会转义
+  boss: true
+  birth: 2019/12/9
+  age: 18
+  #  interests: [读书,游戏]
+  interests:
+    - 读书
+    - 游戏
+  animal: [喵星人,汪星人]
+  #  score:
+  #    english: 80
+  #    math: 90
+  score: {english:80,math:90}
+  salarys:
+    - 9999.98
+    - 9999.99
+  pet:
+    name: 大黄
+    weight: 99.99
+  allPets:
+    sick:
+      - {name: 狗,weight: 99.99}
+      - name: 猫
+        weight: 88.88
+      - name: 虫
+        weight: 77.77
+    health:
+      - {name: 小兰,weight: 199.99}
+      - {name: 大白,weight: 199.99}
+  user-name: gavin
+
+
+
+
+#spring:
+#  banner:
+#    image:
+#      bitdepth: 4
+#  cache:
+#    type: redis
+#    redis:
+#      time-to-live: 11000

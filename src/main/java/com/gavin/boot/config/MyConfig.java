@@ -30,7 +30,7 @@ import org.springframework.context.annotation.ImportResource;
 //@ConditionalOnBean(name = "tom")
 @ConditionalOnMissingBean(name = "tom")
 @ImportResource("classpath:beans.xml")
-@EnableConfigurationProperties(Car.class)
+@EnableConfigurationProperties(Car.class) // 这里省略了Car中的 @Component
 //1、开启Car配置绑定功能
 //2、把这个Car这个组件自动注册到容器中
 public class MyConfig {
@@ -50,7 +50,7 @@ public class MyConfig {
 
     @Bean("tom") // 自定义组件名称
     public Pet tomcatPet() {
-        return new Pet("tomcat");
+        return new Pet("tomcat",99);
     }
 }
 
