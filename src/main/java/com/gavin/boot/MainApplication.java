@@ -16,10 +16,10 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * @SpringBootApplication：这是一个SpringBoot应用
  */
-@SpringBootApplication
+@SpringBootApplication  //相当以下三个注解
 //@SpringBootConfiguration
 //@EnableAutoConfiguration
-//@ComponentScan("com.gavin.boot") // 扩大包扫描
+//@ComponentScan("com.gavin.boot") // 包扫描
 public class MainApplication {
     public static void main(String[] args) {
         // 返回IOC容器

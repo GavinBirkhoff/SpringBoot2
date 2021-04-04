@@ -242,7 +242,7 @@ Full模式与Lite模式
 
 条件装配：满足Conditional指定的条件，则进行组件注入
 
-## 配置绑定 
+### 配置绑定 
 
 如何使用Java读取到properties文件中的内容，并且把它封装到JavaBean中，以供随时使用；
 
@@ -265,3 +265,6 @@ public class getProperties {
 @ConfigurationProperties
 
 @Component + @ConfigurationProperties
+
+@EnableConfigurationProperties + @ConfigurationProperties
+
